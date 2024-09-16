@@ -44,7 +44,7 @@ public enum QuestRecipeManagerPlugin implements IRecipeManagerPlugin {
             for (ChapterGroup group : ClientQuestFile.INSTANCE.chapterGroups) {
                 for (Chapter chapter : group.chapters) {
                     for (Quest quest : chapter.quests) {
-                        if (ClientQuestFile.INSTANCE.self.canStartTasks(quest) && !quest.rewards.isEmpty() && !quest.disableJEI.get(ClientQuestFile.INSTANCE.defaultQuestDisableJEI)) {
+                        if (!quest.rewards.isEmpty() && !quest.disableJEI.get(ClientQuestFile.INSTANCE.defaultQuestDisableJEI)) {
                             List<Reward> rewards = quest.rewards.stream()
                                     .filter(reward -> reward.getAutoClaimType() != RewardAutoClaim.INVISIBLE && reward.getIngredient() != null)
                                     .toList();
